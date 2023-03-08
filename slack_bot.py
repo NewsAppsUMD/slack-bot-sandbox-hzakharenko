@@ -5,7 +5,17 @@ from slack.errors import SlackApiError
 slack_token = os.environ.get('SLACK_API_TOKEN')
 
 client = WebClient(token=slack_token)
-msg = "testing!"
+
+#code here that loads the CSV and finds a specific call
+#location = row['location']
+#date=row['date']
+
+location = "1600 Pennsylvania Ave"
+date = "March 7, 2023"
+
+msg = f"Call placed from {location} on {date}!"
+
+
 try:
     response = client.chat_postMessage(
         channel="slack-bots",
